@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Academia Premium em Itaquera. Treinamento de elite para executivos. Transforme seu corpo e produtividade em 60 dias.">
+    <meta name="author" content="Nascimento Solutions">
+    <title>Academia Premium Itaquera | Nascimento Solutions</title>
+
+    <!-- Favicon (Ícone da aba) -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/69/69840.png">
+
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Poppins & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- AOS Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #d4af37; /* Gold */
+            --primary-hover: #b8962e;
+            --dark-bg: #0a0a0a;
+            --dark-card: #161616;
+            --text-light: #ffffff;
+            --text-muted: #ffffff; 
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-bold {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        /* Navbar Custom */
+        .navbar {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+            transition: all 0.3s;
+            z-index: 1050;
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        #home {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 80px; 
+        }
+
+        .hero-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* Cards */
+        .card-premium {
+            background: var(--dark-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .card-premium:hover {
+            transform: translateY(-12px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Buttons */
+        .btn-cta {
+            background: var(--primary);
+            color: #000 !important;
+            font-weight: 700;
+            padding: 14px 35px;
+            border-radius: 12px;
+            border: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .btn-outline-light {
+            border: 2px solid #ffffff;
+            color: #ffffff !important;
+            font-weight: 600;
+            background: transparent;
+        }
+
+        /* WhatsApp e Voltar ao Topo */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 105px;
+            right: 30px;
+            background-color: var(--primary);
+            color: #000;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 999;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .scroll-top:hover {
+            background-color: #fff;
+            transform: translateY(-5px);
+        }
+
+        /* Testemunhos/Fotos */
+        .img-evolution {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .quote-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 4rem 0 2rem;
+            background-color: #000;
+        }
+
+        .social-link {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+        }
+
+        .text-gold { color: var(--primary); }
+
+        @media (max-width: 992px) {
+            .display-3 { font-size: 3rem; }
+            #home { text-align: center; }
+            #home .d-flex { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            .display-3 { font-size: 2.2rem; }
+            #home { padding-top: 100px; }
+        }
+
+        p, span, small, li {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#home">
+            <span class="text-gold">PREMIUM</span> ITAQUERA
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#metodo">Método</a></li>
+                <li class="nav-item"><a class="nav-link" href="#resultados">Resultados</a></li>
+                <li class="nav-item"><a class="nav-link" href="#simulador">Simulador ROI</a></li>
+                <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
+                <li class="nav-item ms-lg-3">
+                    <a href="#planos" class="btn btn-cta btn-sm py-2 px-4">Começar Agora</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7" data-aos="fade-right">
+                <span class="hero-badge">RESERVADO PARA ALTO DESEMPENHO</span>
+                <h1 class="display-3 fw-800 mb-4">Transforme seu corpo em <span class="text-gold">60 dias</span></h1>
+                <p class="lead mb-5 fs-4 fw-light">A primeira academia boutique de Itaquera focada em executivos. Saúde não é gasto, é o seu melhor investimento.</p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#planos" class="btn btn-cta btn-lg">Quero minha vaga de elite</a>
+                    <a href="#simulador" class="btn btn-outline-light btn-lg rounded-3">Calcular ROI de Saúde</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pain Points -->
+<section id="metodo" class="py-5 bg-black">
+    <div class="container py-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="display-5 fw-bold">O Custo da <span class="text-gold">Inércia</span></h2>
+            <p>A má gestão da sua saúde drena seus lucros anuais</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card-premium h-100 text-center">
+                    <i class="bi bi-capsule-pill fs-1 text-gold mb-3"></i>
+                    <h4>Remédios</h4>
+                    <p class="small">Evite gastos com farmácia investindo em prevenção.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-premium h-100 text-center">
+                    <i class="bi bi-graph-down-arrow fs-1 text-gold mb-3"></i>
+                    <h4>Foco</h4>
+                    <p class="small">Aumente sua produtividade cognitiva com treinos curtos.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-premium h-100 text-center">
+                    <i class="bi bi-battery-half fs-1 text-gold mb-3"></i>
+                    <h4>Energia</h4>
+                    <p class="small">Tenha disposição para o trabalho e para a família.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-premium h-100 text-center">
+                    <i class="bi bi-heart-pulse fs-1 text-gold mb-3"></i>
+                    <h4>Risco</h4>
+                    <p class="small">Monitore sua saúde com tecnologia de elite.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Resultados e Prova Social -->
+<section id="resultados" class="py-5 bg-dark">
+    <div class="container py-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="display-5 fw-bold">Resultados <span class="text-gold">Reais</span></h2>
+            <p>Veja a evolução de quem decidiu investir na própria performance</p>
+        </div>
+        
+        <div class="row g-4 mb-5">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="card-premium p-3">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800" alt="Evolução 1" class="img-evolution mb-3">
+                    <div class="px-2">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="small italic">"Consegui reduzir meu percentual de gordura e aumentar meu foco nas reuniões matinais. Vale cada centavo."</p>
+                        <h6 class="text-gold mb-0">Ricardo M.</h6>
+                        <span class="small opacity-75">CEO & Investidor</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card-premium p-3">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&q=80&w=800" alt="Evolução 2" class="img-evolution mb-3">
+                    <div class="px-2">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="small italic">"O ambiente é exclusivo e o atendimento é impecável. Recuperei a energia que tinha há 10 anos."</p>
+                        <h6 class="text-gold mb-0">Juliana S.</h6>
+                        <span class="small opacity-75">Diretora Jurídica</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card-premium p-3">
+                    <img src="https://images.unsplash.com/photo-1594882645126-14020914d58d?auto=format&fit=crop&q=80&w=800" alt="Evolução 3" class="img-evolution mb-3">
+                    <div class="px-2">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="small italic">"O melhor networking de Itaquera. Treino com pessoas que têm a mesma mentalidade de sucesso."</p>
+                        <h6 class="text-gold mb-0">André L.</h6>
+                        <span class="small opacity-75">Empreendedor Tech</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Simulador ROI -->
+<section id="simulador" class="py-5">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-5 mb-lg-0">
+                <h2 class="display-5 fw-bold mb-4">ROI da sua <span class="text-gold">Saúde</span></h2>
+                <p class="fs-5">Manutenção preventiva do seu bem mais valioso: <strong>Sua Vida.</strong></p>
+            </div>
+            <div class="col-lg-7">
+                <div style="background: var(--glass); border-radius: 30px; padding: 2rem; border: 1px solid var(--glass-border);">
+                    <h4 class="mb-4 fw-bold">Simulador de Economia Anual</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small">Gasto mensal (Saúde)</label>
+                            <input type="number" id="inputGastos" class="form-control" placeholder="R$ 500">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small">Exames por ano</label>
+                            <input type="number" id="inputConsultas" class="form-control" placeholder="4">
+                        </div>
+                        <div class="col-12">
+                            <button onclick="calculateROI()" class="btn btn-cta w-100 py-3">Calcular Retorno</button>
+                        </div>
+                    </div>
+                    <div id="resultArea" class="mt-4 p-4 rounded-3 text-center d-none" style="background: rgba(40, 167, 69, 0.1);">
+                        <span>Economia estimada por ano:</span>
+                        <h2 class="text-success fw-bold" id="roiValue">R$ 0,00</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Planos -->
+<section id="planos" class="py-5 bg-black">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Planos de <span class="text-gold">Elite</span></h2>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4">
+                <div class="card-premium h-100">
+                    <h5 class="text-gold mb-4">EXECUTIVE</h5>
+                    <h2 class="display-4 fw-bold">R$149<small class="fs-6">/mês</small></h2>
+                    <ul class="list-unstyled my-4">
+                        <li><i class="bi bi-check2 text-gold me-2"></i> Musculação</li>
+                        <li><i class="bi bi-check2 text-gold me-2"></i> Avaliação Mensal</li>
+                    </ul>
+                    <!-- Mensagem personalizada para o plano Executive -->
+                    <a href="https://wa.me/5511910526709?text=Olá! Acabei de ver o site e quero garantir minha vaga no Plano EXECUTIVE." target="_blank" class="btn btn-outline-light w-100">Assinar</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card-premium h-100" style="border-color: var(--primary);">
+                    <h5 class="text-gold mb-4">ELITE PERFORMANCE</h5>
+                    <h2 class="display-4 fw-bold">R$249<small class="fs-6">/mês</small></h2>
+                    <ul class="list-unstyled my-4">
+                        <li><i class="bi bi-check2 text-gold me-2"></i> Personal Trainer</li>
+                        <li><i class="bi bi-check2 text-gold me-2"></i> Plano Nutricional</li>
+                        <li><i class="bi bi-check2 text-gold me-2"></i> Co-working incluso</li>
+                    </ul>
+                    <!-- Mensagem personalizada para o plano Elite Performance -->
+                    <a href="https://wa.me/5511910526709?text=Olá! Acabei de ver o site e quero o Plano ELITE PERFORMANCE. Vamos começar?" target="_blank" class="btn btn-cta w-100">Garantir Vaga</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="container">
+        <div class="mb-4">
+            <h4 class="fw-bold"><span class="text-gold">PREMIUM</span> ITAQUERA</h4>
+        </div>
+        <div class="d-flex justify-content-center gap-4 mb-4">
+            <a href="https://www.instagram.com/tatianesouza.assessoria?igsh=MWRwbjUxYnE1MWI4aQ==" target="_blank" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1BDgmm4gui/" target="_blank" class="social-link"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/tatiane-nascimento-68b0622bb?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-link"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <p class="small">&copy; 2026 Academia Premium Itaquera. <br> Desenvolvido por <strong>Nascimento Solutions</strong></p>
+    </div>
+</footer>
+
+<!-- Seta Voltar ao Topo -->
+<button class="scroll-top" id="btnTop" onclick="window.scrollTo(0,0)">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/5511910526709?text=Olá! Gostaria de mais informações sobre a Academia Premium." class="whatsapp-float" target="_blank">
+    <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    AOS.init();
+
+    // Lógica da Seta de Topo
+    const btnTop = document.getElementById('btnTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            btnTop.style.display = 'flex';
+        } else {
+            btnTop.style.display = 'none';
+        }
+    });
+
+    function calculateROI() {
+        const gastos = parseFloat(document.getElementById('inputGastos').value) || 0;
+        const consultas = parseFloat(document.getElementById('inputConsultas').value) || 0;
+        const total = (gastos * 12 * 0.5) + (consultas * 200) + 5000;
+        document.getElementById('resultArea').classList.remove('d-none');
+        document.getElementById('roiValue').innerText = total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+    }
+</script>
+
+</body>
+</html>
+
